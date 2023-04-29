@@ -10,4 +10,5 @@ fake = Faker()
 def generate_sample():
     L = round(random.uniform(0.8, 2.5), 2)
     t = round(random.uniform(0.4, 0.7), 2)
-    g_calculated = 
+    g_calculated = round((2 * L)/(t**2), 2)
+    most_probable_planet = "Tierra" if abs(g_calculated - 9.8) < abs(g_calculated - 9.0) else "Saturno"
