@@ -12,3 +12,13 @@ def generate_sample():
     t = round(random.uniform(0.4, 0.7), 2)
     g_calculated = round((2 * L)/(t**2), 2)
     most_probable_planet = "Tierra" if abs(g_calculated - 9.8) < abs(g_calculated - 9.0) else "Saturno"
+    second_most_probable_planet = "Saturno" if most_probable_planet == "Tierra" else "Tierra"
+
+    return {
+        "ID": fake.uuid4(),
+        "Longitud (m)": L,
+        "Tiempo (s)": t,
+        "Gravedad calculada (m/s^2)": g_calculated,
+        "Planeta más probable": most_probable_planet,
+        "Segundo planeta más probable": second_most_probable_planet
+    }
