@@ -22,3 +22,11 @@ def generate_sample():
         "Planeta más probable": most_probable_planet,
         "Segundo planeta más probable": second_most_probable_planet
     }
+
+dataset = ([generate_sample() for _ in range(100)])
+
+df = pd.DataFrame(dataset)
+print(df.describe())
+
+df.hist(column=["Longitud (m)", "Tiempo (s)", "Gravedad calculada (m/s^2)"])
+
