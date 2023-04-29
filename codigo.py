@@ -7,6 +7,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
 
 fake = Faker()
+planets = ["Tierra", "Marte", "Júpiter", "Saturno", "Urano", "Neptuno"]
+accelerations = [9.8, 3.7, 24.8, 10.4, 8.9, 11.2]
 
 def generate_sample():
     L = round(random.uniform(0.8, 2.5), 2)
