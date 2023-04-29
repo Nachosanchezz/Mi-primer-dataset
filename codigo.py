@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from faker import Faker
 from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LinearRegression
 
 fake = Faker()
 
@@ -39,6 +40,27 @@ plt.show()
 label_encoder = LabelEncoder()
 df["Planeta más probable (código)"] = label_encoder.fit_transform(df["Planeta más probable"])
 df["Segundo planeta más probable (código)"] = label_encoder.fit_transform(df["Segundo planeta más probable"])
+
+print(df.corr())
+
+x = df["Longitud (m)"].values.reshape(-1, 1)
+y = df["Tiempo (s)"].values.reshape(-1, 1)
+
+model = LinearRegression()
+model.fit(x, y)
+
+y_pred = model.predict(x)
+
+plt.scatter(x, y, color="red")
+plt.plot(x, y_pred, color="green")
+plt.xlabel("Longitud (m)")
+plt.ylabel("Tiempo (s)")
+plt.show()
+
+print(df["Planeta más probable"].value_counts())
+print(df["Segundo planeta más probable"].value_counts())
+
+
 
 
 
