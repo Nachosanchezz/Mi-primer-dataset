@@ -29,4 +29,16 @@ df = pd.DataFrame(dataset)
 print(df.describe())
 
 df.hist(column=["Longitud (m)", "Tiempo (s)", "Gravedad calculada (m/s^2)"])
+plt.show()
+
+plt.scatter(df["Longitud (m)"], df["Tiempo (s)"])
+plt.xlabel("Longitud (m)")
+plt.ylabel("Tiempo (s)")
+plt.show()
+
+label_encoder = LabelEncoder()
+df["Planeta más probable (código)"] = label_encoder.fit_transform(df["Planeta más probable"])
+df["Segundo planeta más probable (código)"] = label_encoder.fit_transform(df["Segundo planeta más probable"])
+
+
 
